@@ -6,7 +6,7 @@ extends EditorPlugin
 ## gd_state 提供两个全局类（class_name），无需注册单例：
 ##   - StateMachine：通用状态机
 ##   - GameFlow：通用游戏流程控制器
-## 插件只负责把脚本路径加入项目（class_name 自动注册全局类）。
+## 插件只负责把脚本路径加入项目（class_name 自动注册全局类）   。
 ## ============================================================
 
 func _enter_tree() -> void:
