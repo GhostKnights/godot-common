@@ -43,6 +43,8 @@ git subtree pull --prefix addons <godot-common 仓库地址> main --squash
 git subtree push --prefix addons <godot-common 仓库地址> main
 ```
 
+> 分支名以共享仓库实际分支为准（本仓库为 `main`；旧仓库可能是 `master`）。
+
 引入后项目里会出现 `addons/gd_config/`、`addons/gd_state/` 等插件目录，
 在项目设置 → 插件 里启用即可。
 

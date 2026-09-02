@@ -1,8 +1,11 @@
-class_name ConfigManager
 extends Node
 ## ============================================================
 ##  ConfigManager —— 通用配置查询引擎（跨项目共享）
 ## ============================================================
+## 【注意】本脚本是 Autoload 单例，**不要声明 class_name**：
+##   单例名与 class_name 同名时，GDScript 会把它解析成"类"，
+##   导致 ConfigManager.lookup_xxx() 这类实例调用报错。
+##
 ## 【定位】godot-common 共享框架的配置层。与任何玩法无关，
 ##   只负责：把 CSV/TXT 配置加载成表 → 提供 5 种通用查表模式。
 ##
@@ -10,9 +13,9 @@ extends Node
 ##   方式 A：直接使用本单例
 ##     在 _ready 里配置要加载的表，然后调 load_all()。
 ##   方式 B：项目子类化（推荐，玩法越复杂越适合）
-##     # 项目内 ProjectConfig.gd
+##     # 项目内 ProjectConfig.gd（无 class_name 的脚本用路径 extends）
 ##     class_name ProjectConfig
-##     extends ConfigManager
+##     extends "res://addons/gd_config/ConfigManager.gd"
 ##     func _ready() -> void:
 ##         table_specs = {
 ##             "score": {"file": "PickUP.txt", "skip": 3},

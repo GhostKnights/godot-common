@@ -26,11 +26,13 @@ func _ready() -> void:
 ```
 
 ### 方式 B：子类化（推荐）
-建一个 `ProjectConfig.gd extends ConfigManager`，把业务薄封装放里面：
+建一个 `ProjectConfig.gd extends ConfigManager`，把业务薄封装放里面。
+> 注意：ConfigManager 是 Autoload 单例，脚本本身没有 class_name，
+> 子类化要用脚本路径 extends。
 
 ```gdscript
 class_name ProjectConfig
-extends ConfigManager
+extends "res://addons/gd_config/ConfigManager.gd"
 
 func _ready() -> void:
 	table_specs = {
